@@ -3,6 +3,8 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
+  App. vue {{ $store.state.count }}
+  <button @click="increment">Increment by 2</button>
   <router-view />
 </template>
 
@@ -28,3 +30,16 @@
   }
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    increment() {
+      // .commit method gives access to common methods defined in store > index.js file
+      // here increment method is the common method here and in countervue
+      // here 2 is the argument passed to .commit method
+      this.$store.commit("increment", 2);
+    },
+  },
+};
+</script>
