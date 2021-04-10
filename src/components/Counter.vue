@@ -1,6 +1,10 @@
 <template>
-  {{ $store.state.count }}
-  <button @click="increment">Increment by 1</button>
+  {{ $store.state.count }} - value at counter.vue
+  <h4>
+    Button situated at counter.vue a child compo but increment the value
+    globally by commit method
+    <button @click="increment">Increment by 2</button>
+  </h4>
 </template>
 
 <script>

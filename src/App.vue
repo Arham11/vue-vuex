@@ -3,8 +3,11 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  App. vue {{ $store.state.count }}
-  <button @click="increment">Increment by 2</button>
+  {{ $store.state.count }} - value at app.vue
+  <h4>
+    Button situated at App.vue but increment the value globally by commit method
+    <button @click="increment">Increment by 2</button>
+  </h4>
   <router-view />
 </template>
 
