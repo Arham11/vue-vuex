@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <b>Number of task done : {{ doneTask() }}</b>
+    <b>Number of task done : {{ doneTaskcount() }}</b>
   </div>
 </template>
 
@@ -18,10 +18,10 @@ export default {
       // here 2 is the argument passed to .commit method
       this.$store.commit("increment", 2);
     },
-    doneTask() {
-      //doneLists is define in store > index.js file
+    doneTaskcount() {
+      //doneTodosCount is define in store > index.js file
       //will update here and as well as at TodoList.vue
-      return this.$store.getters.doneLists;
+      return this.$store.getters.doneTodosCount;
     },
   },
 };

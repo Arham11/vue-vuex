@@ -13,7 +13,7 @@ let store = createStore({
     ],
   },
 
-  //mutations basically handles out the common execution
+  //mutations are use to set the data (state)
   //thats need to be done on app.vue and counter.vue
   //payload over here is the arguments passed to components using it(counter nd app)
   mutations: {
@@ -21,12 +21,28 @@ let store = createStore({
       return (state.count += payload);
     },
   },
+
   // getters are used to update the processed value of state
-  // the below js return the number of todos done
   getters: {
-    doneLists(state) {
-      return state.todos.filter((item) => item.done).length;
+    // the below function returns the number of todos done
+    doneTodos(state) {
+      return state.todos.filter((item) => item.done);
     },
+    //the below function takes getters as an argument
+    // (state.todos.filter((item) => item.done)) is given as (getters.doneTodos)
+    doneTodosCount(state, getters) {
+      return getters.doneTodos.length;
+    },
+    //passing an argument(id) from another component to below funct
+    // the below function will return the selected id todo's object to todolist.vue
+    getTodoById: (state) => (selectedId) => {
+      return state.todos.find((todo) => todo.id === selectedId);
+    },
+    // getTodoById: function (state) {
+    //   return function (id) {
+    //     return state.todos.find((todo) => todo.id === id);
+    //   };
+    // },
   },
   actions: {},
   modules: {},
