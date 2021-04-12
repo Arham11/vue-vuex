@@ -6,7 +6,7 @@
   {{ $store.state.count }} - value at app.vue
   <h4>
     Button situated at App.vue but increment the value globally by commit method
-    <button @click="increment">Increment by 2</button>
+    <button class="bg-blue-100" @click="increment">Increment by 2</button>
   </h4>
   <router-view />
 </template>
@@ -40,8 +40,9 @@ export default {
     increment() {
       // .commit method gives access to common methods defined in store > index.js file
       // here increment method is the common method here and in countervue
-      // here 2 is the argument passed to .commit method
-      this.$store.commit("increment", 2);
+      // here 2 is the argument passed to .commit method or dispatch for action to update mutation
+
+      this.$store.dispatch("increment", 2);
     },
   },
 };
